@@ -1,0 +1,4 @@
+.node-persist
+node_modules
+dist
+release

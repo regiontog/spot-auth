@@ -1,0 +1,74 @@
+{
+    "name": "spot-auth",
+    "version": "1.0.0",
+    "description": "A application that exposes a API for local clients to get spotify authentication.",
+    "scripts": {
+        "clean": "rimraf dist release",
+        "prebuild": "npm run clean",
+        "build": "tsc",
+        "watch": "tsc -w",
+        "lint": "tslint -c tslint.json -p tsconfig.json",
+        "start": "electron ./dist/index.js",
+        "pack": "electron-builder",
+        "prepack": "npm run build"
+    },
+    "repository": "https://github.com/regiontog/spot-auth",
+    "keywords": [
+        "Electron",
+        "spotify",
+        "authentication",
+        "auth",
+        "API",
+        "typescript"
+    ],
+    "author": "Erlend Tobiassen",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/express": "^4.17.0",
+        "@types/js-base64": "^2.3.1",
+        "@types/multer": "^1.3.8",
+        "@types/node-persist": "0.0.33",
+        "electron": "^6.0.0",
+        "electron-builder": "^21.2.0",
+        "rimraf": "^2.6.3",
+        "tslint": "^5.18.0",
+        "typescript": "^3.5.3"
+    },
+    "dependencies": {
+        "clipboardy": "^2.1.0",
+        "express": "^4.17.1",
+        "multer": "^1.4.2",
+        "node-persist": "^3.0.5",
+        "tweetnacl": "^1.0.1"
+    },
+    "build": {
+        "appId": "org.regiontog.spot-auth",
+        "productName": "Spotify Auth",
+        "publish": [
+            {
+                "provider": "github"
+            }
+        ],
+        "files": [
+            "build/icon.png",
+            {
+                "from": "dist"
+            }
+        ],
+        "directories": {
+            "output": "release"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "7z",
+                "zip"
+            ]
+        },
+        "linux": {
+            "target": [
+                "tar.gz"
+            ]
+        }
+    }
+}
