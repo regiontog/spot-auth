@@ -77,6 +77,7 @@ export async function createApiUrlParams(): Promise<string> {
     const base64url = (array: Uint8Array) => {
         return Buffer.from(array).toString("base64")
             .replace(/\+/g, '-')
+            .replace(/=/g, '~')
             .replace(/\//g, '_');
     }
 

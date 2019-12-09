@@ -1,6 +1,6 @@
 {
     "name": "spot-auth",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A application that exposes a API for local clients to get spotify authentication.",
     "scripts": {
         "clean": "rimraf dist release",
